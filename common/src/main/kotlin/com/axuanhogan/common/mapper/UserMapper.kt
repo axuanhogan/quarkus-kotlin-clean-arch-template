@@ -1,20 +1,37 @@
 package com.axuanhogan.common.mapper
 
-import com.axuanhogan.core.port.`in`.pdo.UserPDO
 import com.axuanhogan.common.dao.UserDAO
+import com.axuanhogan.domain.user.User
+import com.axuanhogan.domain.user.value_object.Email
+import com.axuanhogan.domain.user.value_object.UserId
+import com.axuanhogan.domain.user.value_object.UserName
 
-fun UserDAO.toPDO(): UserPDO {
-    return UserPDO(
-        id = this.id,
-        email = this.email,
-        name = this.name,
+/**
+ * Mapper: Domain Entity (User) ↔ Data Access Object (UserDAO)
+ *
+ * Converts between rich domain model and persistence model.
+ */
+
+/**
+ * Convert UserDAO to Domain Entity
+ * Used when reading from database
+ */
+fun UserDAO.toDomainEntity(): User {
+    return User.reconstitute(
+        id = UserId.from(this.id),
+        email = Email(this.email),
+        name = UserName(this.name)
     )
 }
 
-fun UserPDO.toDAO(): UserDAO {
+/**
+ * Convert Domain Entity to UserDAO
+ * Used when persisting to database
+ */
+fun User.toDAO(): UserDAO {
     return UserDAO(
-        id = this.id,
-        email = this.email,
-        name = this.name,
+        id = this.id.value,
+        email = this.email.value,
+        name = this.name.value,
     )
 }

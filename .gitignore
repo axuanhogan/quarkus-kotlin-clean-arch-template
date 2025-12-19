@@ -14,9 +14,5 @@ build/
 # Kotlin
 .kotlin
 
-# Claude
-CLAUDE.md
-.claude
-
-# API
+# Application
 web-api/.env
