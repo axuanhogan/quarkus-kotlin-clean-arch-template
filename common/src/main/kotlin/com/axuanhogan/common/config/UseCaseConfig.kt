@@ -3,7 +3,7 @@ package com.axuanhogan.common.config
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
 import com.axuanhogan.core.port.out.repository.UserRepository
-import com.axuanhogan.core.port.out.service.KeycloakOidcService
+import com.axuanhogan.core.port.out.service.AuthService
 import com.axuanhogan.core.port.`in`.use_case.auth.SignInUseCase
 import com.axuanhogan.core.port.`in`.use_case.user.CreateUserUseCase
 import com.axuanhogan.core.port.`in`.use_case.user.GetUserInfoUseCase
@@ -26,9 +26,9 @@ class UseCaseConfig {
     }
 
     @Produces
-    fun signInUseCase(keycloakOidcService: KeycloakOidcService): SignInUseCase {
+    fun signInUseCase(authService: AuthService): SignInUseCase {
         return SignInUseCase(
-            keycloakOidcService = keycloakOidcService
+            authService = authService
         )
     }
 }

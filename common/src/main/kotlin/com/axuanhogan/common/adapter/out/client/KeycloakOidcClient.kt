@@ -20,7 +20,7 @@ interface KeycloakOidcClient {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("/realms/clean-architecture-implementation/protocol/openid-connect/token")
-    fun getTokenByPasswordGrant(
+    fun getAuthorizationTokenByPasswordGrant(
         @RestForm("grant_type") grantType: String,
         @RestForm("client_id") clientId: String,
         @RestForm("client_secret") clientSecret: String,

@@ -1,32 +1,34 @@
 package com.axuanhogan.common.adapter.out.service_impl
 
 import com.axuanhogan.common.adapter.out.client.KeycloakOidcClient
-import com.axuanhogan.core.port.out.service.KeycloakOidcService
-import com.axuanhogan.core.port.out.service.KeycloakOidcService.GetTokenByPasswordGrantBody
-import com.axuanhogan.core.port.out.service.KeycloakOidcService.GetTokenByPasswordGrantResponse
+import com.axuanhogan.core.port.out.service.AuthService
 import jakarta.enterprise.context.ApplicationScoped
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.eclipse.microprofile.rest.client.inject.RestClient
 
 @ApplicationScoped
-class KeycloakOidcServiceImpl(
+class AuthServiceImpl(
     @param:RestClient private val client: KeycloakOidcClient,
     @param:ConfigProperty(name = "quarkus.rest-client.keycloak-oidc.client-secret") val clientSecret: String,
-): KeycloakOidcService {
+): AuthService {
 
     private val clientId: String = KeycloakOidcClient.Client.CLEAN_ARCHITECTURE_IMPLEMENTATION.name
 
-    override fun getTokenByPasswordGrant(body: GetTokenByPasswordGrantBody): GetTokenByPasswordGrantResponse {
-        val result = client.getTokenByPasswordGrant(
+    override fun getAuthorizationTokenByPassword(
+        username: String,
+        password: String,
+        scope: String?,
+    ): AuthService.AuthorizationToken {
+        val result = client.getAuthorizationTokenByPasswordGrant(
             grantType = "password",
             clientId = clientId,
             clientSecret = clientSecret,
-            username = body.username,
-            password = body.password,
-            scope = body.scope
+            username = username,
+            password = password,
+            scope = scope
         )
 
-        return GetTokenByPasswordGrantResponse(
+        return AuthService.AuthorizationToken(
             accessToken = result.accessToken,
             expiresIn = result.expiresIn,
             refreshToken = result.refreshToken,

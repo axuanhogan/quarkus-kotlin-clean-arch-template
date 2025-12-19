@@ -1,30 +1,28 @@
 package com.axuanhogan.core.port.`in`.use_case.auth
 
-import com.axuanhogan.core.port.out.service.KeycloakOidcService
+import com.axuanhogan.core.port.out.service.AuthService
 
 class SignInUseCase(
-    private val keycloakOidcService: KeycloakOidcService
+    private val authService: AuthService
 ) {
 
     fun execute(input: SignInUseCaseInput): SignInUseCaseOutput {
 
-        val response =  keycloakOidcService.getTokenByPasswordGrant(
-            body = KeycloakOidcService.GetTokenByPasswordGrantBody(
-                username = input.username,
-                password = input.password,
-                scope = input.scope,
-            )
+        val authorizationToken =  authService.getAuthorizationTokenByPassword(
+            username = input.username,
+            password = input.password,
+            scope = input.scope,
         )
 
         return SignInUseCaseOutput(
-            accessToken = response.accessToken,
-            expiresIn = response.expiresIn,
-            refreshToken = response.refreshToken,
-            refreshExpiresIn = response.refreshExpiresIn,
-            tokenType = response.tokenType,
-            notBeforePolicy = response.notBeforePolicy,
-            sessionState = response.sessionState,
-            scope = response.scope,
+            accessToken = authorizationToken.accessToken,
+            expiresIn = authorizationToken.expiresIn,
+            refreshToken = authorizationToken.refreshToken,
+            refreshExpiresIn = authorizationToken.refreshExpiresIn,
+            tokenType = authorizationToken.tokenType,
+            notBeforePolicy = authorizationToken.notBeforePolicy,
+            sessionState = authorizationToken.sessionState,
+            scope = authorizationToken.scope,
         )
     }
 }
