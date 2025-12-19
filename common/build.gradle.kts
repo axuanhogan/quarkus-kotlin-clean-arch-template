@@ -11,6 +11,7 @@ val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
 dependencies {
+    implementation(project(":core:domain"))
     implementation(project(":core:use-case"))
     implementation(kotlin("stdlib-jdk8"))
 

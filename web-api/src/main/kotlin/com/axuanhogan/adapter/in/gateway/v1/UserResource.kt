@@ -132,7 +132,7 @@ class UserResource(
         body: UserResourceRequest.CreateUser,
     ): Response {
 
-        createUserUseCase.execute(
+        val result = createUserUseCase.execute(
             input = CreateUserUseCaseInput(
                 email = body.email,
                 name = body.name,
@@ -141,7 +141,8 @@ class UserResource(
 
         return ResponseHandler.ok(
             data = UserResourceResponse.CreateUser(
-                message = "Niceeee"
+                userId = result.userId,
+                message = "User created successfully"
             )
         )
     }

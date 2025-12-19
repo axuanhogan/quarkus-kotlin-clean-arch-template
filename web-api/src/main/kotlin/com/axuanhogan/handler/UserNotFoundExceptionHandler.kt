@@ -15,7 +15,7 @@ class UserNotFoundExceptionHandler : ExceptionMapper<UserNotFoundException> {
         Log.error("[$trackingCode] Catch the UserNotFoundException in UserNotFoundExceptionHandler", exception)
         return ResponseHandler.unprocessableEntity(
             code = "USER_NOT_FOUND",
-            message = "User not found",
+            message = exception.message ?: "User not found",
             trackingCode = trackingCode
         )
     }
