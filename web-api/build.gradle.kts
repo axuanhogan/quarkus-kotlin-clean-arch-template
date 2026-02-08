@@ -13,7 +13,7 @@ val quarkusPlatformVersion: String by project
 
 dependencies {
     implementation(project(":core:domain"))
-    implementation(project(":core:use-case"))
+    implementation(project(":core:application"))
     implementation(project(":common"))
     implementation(kotlin("stdlib-jdk8"))
 
