@@ -1,4 +1,4 @@
-package com.axuanhogan.core.port.`in`.use_case.auth
+package com.axuanhogan.core.use_case.auth
 
 import com.axuanhogan.core.port.out.service.AuthService
 

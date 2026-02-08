@@ -1,4 +1,4 @@
-package com.axuanhogan.core.port.`in`.use_case.user
+package com.axuanhogan.core.use_case.user
 
 import com.axuanhogan.core.port.out.repository.UserRepository
 import com.axuanhogan.domain.user.User
