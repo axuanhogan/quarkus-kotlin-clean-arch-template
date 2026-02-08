@@ -26,11 +26,11 @@ class UserRepositoryImpl(
             ?.toDomainEntity()
     }
 
-    override fun save(user: User) {
-        userJpaRepository.save(user.toDAO())
+    override fun save(domainEntity: User) {
+        userJpaRepository.save(domainEntity.toDAO())
     }
 
-    override fun delete(user: User) {
-        userJpaRepository.delete(user.toDAO())
+    override fun delete(domainEntity: User) {
+        userJpaRepository.delete(domainEntity.toDAO())
     }
 }
