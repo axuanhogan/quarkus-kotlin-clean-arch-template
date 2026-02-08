@@ -139,15 +139,15 @@ graph LR
 		subgraph domain-layer[Domain Layer]
 			Entity
 		end
-		subgraph use-case-layer[Use Case Layer]
+		subgraph application-layer[Application Layer]
             subgraph port-out[Port Out（Interface）]
                 port-out-repo[Repository]
                 port-out-service[Service]
             end
             subgraph port-in[Port In]
-				use-case[Use Case]
 				pdo[Persistence Domain Object]
 			end
+            use-case[Use Case]
 		end
 	end
 	
