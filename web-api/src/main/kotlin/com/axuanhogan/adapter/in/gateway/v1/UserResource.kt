@@ -15,10 +15,10 @@ import com.axuanhogan.handler.ResponseHandler
 import com.axuanhogan.adapter.`in`.gateway.v1.request.UserResourceRequest
 import com.axuanhogan.adapter.`in`.gateway.v1.response.UserResourceResponse
 import com.axuanhogan.security.ResourcePermissionChecker
-import com.axuanhogan.core.use_case.user.CreateUserUseCase
-import com.axuanhogan.core.use_case.user.CreateUserUseCaseInput
-import com.axuanhogan.core.use_case.user.GetUserInfoUseCaseInput
-import com.axuanhogan.core.use_case.user.GetUserInfoUseCase
+import com.axuanhogan.application.use_case.user.CreateUserUseCase
+import com.axuanhogan.application.use_case.user.CreateUserUseCaseInput
+import com.axuanhogan.application.use_case.user.GetUserInfoUseCaseInput
+import com.axuanhogan.application.use_case.user.GetUserInfoUseCase
 import io.quarkus.security.PermissionsAllowed
 import java.util.*
 

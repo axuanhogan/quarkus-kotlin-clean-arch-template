@@ -2,11 +2,11 @@ package com.axuanhogan.common.config
 
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Produces
-import com.axuanhogan.core.port.out.repository.UserRepository
-import com.axuanhogan.core.port.out.service.AuthService
-import com.axuanhogan.core.use_case.auth.SignInUseCase
-import com.axuanhogan.core.use_case.user.CreateUserUseCase
-import com.axuanhogan.core.use_case.user.GetUserInfoUseCase
+import com.axuanhogan.application.port.out.repository.UserRepository
+import com.axuanhogan.application.port.out.service.AuthService
+import com.axuanhogan.application.use_case.auth.SignInUseCase
+import com.axuanhogan.application.use_case.user.CreateUserUseCase
+import com.axuanhogan.application.use_case.user.GetUserInfoUseCase
 
 @ApplicationScoped
 class UseCaseConfig {

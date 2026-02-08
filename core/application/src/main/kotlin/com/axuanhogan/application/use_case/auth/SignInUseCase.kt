@@ -1,6 +1,6 @@
-package com.axuanhogan.core.use_case.auth
+package com.axuanhogan.application.use_case.auth
 
-import com.axuanhogan.core.port.out.service.AuthService
+import com.axuanhogan.application.port.out.service.AuthService
 
 class SignInUseCase(
     private val authService: AuthService

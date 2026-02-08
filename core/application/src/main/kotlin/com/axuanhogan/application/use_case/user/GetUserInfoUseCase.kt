@@ -1,7 +1,7 @@
-package com.axuanhogan.core.use_case.user
+package com.axuanhogan.application.use_case.user
 
-import com.axuanhogan.core.port.out.repository.UserRepository
-import com.axuanhogan.core.port.`in`.exception.UserNotFoundException
+import com.axuanhogan.application.port.out.repository.UserRepository
+import com.axuanhogan.application.port.`in`.exception.UserNotFoundException
 import com.axuanhogan.domain.user.value_object.UserId
 import java.util.*
 

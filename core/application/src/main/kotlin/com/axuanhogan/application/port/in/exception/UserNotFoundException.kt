@@ -1,4 +1,4 @@
-package com.axuanhogan.core.port.`in`.exception
+package com.axuanhogan.application.port.`in`.exception
 
 import com.axuanhogan.domain.user.value_object.UserId
 

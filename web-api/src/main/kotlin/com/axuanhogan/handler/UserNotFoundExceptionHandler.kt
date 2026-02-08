@@ -1,7 +1,7 @@
 package com.axuanhogan.handler
 
 import com.axuanhogan.common.util.RandomCodeUtil
-import com.axuanhogan.core.port.`in`.exception.UserNotFoundException
+import com.axuanhogan.application.port.`in`.exception.UserNotFoundException
 import io.quarkus.logging.Log
 import jakarta.ws.rs.core.Response
 import jakarta.ws.rs.ext.ExceptionMapper

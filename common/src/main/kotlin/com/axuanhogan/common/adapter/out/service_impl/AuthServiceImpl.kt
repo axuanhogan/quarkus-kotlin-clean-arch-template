@@ -1,7 +1,7 @@
 package com.axuanhogan.common.adapter.out.service_impl
 
 import com.axuanhogan.common.adapter.out.client.KeycloakOidcClient
-import com.axuanhogan.core.port.out.service.AuthService
+import com.axuanhogan.application.port.out.service.AuthService
 import jakarta.enterprise.context.ApplicationScoped
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.eclipse.microprofile.rest.client.inject.RestClient
