@@ -61,12 +61,11 @@ HTTP Request
    - Defines **Use Case** (use cases)
    - Defines **Port In** (themselves)
    - Defines **Port Out** (Repository, Service interfaces)
-   - Works with PDOs (Persistence Domain Objects)
 3. **common**:
    - Implements Port Out interfaces
    - Contains adapters for external systems (DB, REST clients)
    - Works with DAOs (JPA entities)
-   - Provides mappers (PDO ↔ DAO)
+   - Provides mappers (Domain Entity ↔ DAO)
 4. **web-api**:
    - HTTP/REST endpoints
    - Converts REST DTOs ↔ Use Case inputs/outputs
@@ -79,7 +78,7 @@ HTTP Request
 
 **Ports** (interfaces) defined in `core/application/port/out/`:
 ```kotlin
-interface UserRepository : CommonRepository<UserPDO, UUID>
+interface UserRepository : CommonRepository<User, UserId>
 interface AuthService { fun authenticate(...) }
 ```
 
@@ -94,11 +93,10 @@ class AuthServiceImpl : AuthService { ... }
 
 ### 2. Three-Domain Object Pattern
 
-- **PDO** (`UserPDO`): Used in use case layer, domain representation
 - **DAO** (`UserDAO`): JPA entity with `@Entity`, database schema
 - **DTO** (`UserResourceRequest/Response`): REST API contract
 
-**Mappers** convert between layers (e.g., `UserMapper.toPDO(dao)`)
+**Mappers** convert between layers (e.g., `UserMapper.toDomainEntity()`)
 
 ### 3. Use Case Pattern
 
@@ -115,7 +113,7 @@ class CreateUserUseCase(
 ) {
     fun execute(input: CreateUserUseCaseInput) {
         // Business logic here
-        userRepository.save(userPDO)
+        userRepository.save(dao = user)
     }
 }
 ```

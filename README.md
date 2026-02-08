@@ -145,7 +145,6 @@ graph LR
                 port-out-service[Service]
             end
             subgraph port-in[Port In]
-				pdo[Persistence Domain Object]
 			end
             use-case[Use Case]
 		end
