@@ -34,7 +34,7 @@ This is a **Quarkus Kotlin** project implementing **Clean Architecture** with **
 ```
 quarkus-kotlin-clean-arch-template/
 ├── core/domain           # Pure domain entities (no dependencies)
-├── core/use-case         # Business logic, defines ports (interfaces)
+├── core/application         # Business logic, defines ports (interfaces)
 ├── common               # Adapter implementations, infrastructure
 └── web-api              # REST API entry point, inbound adapters
 ```
@@ -44,8 +44,8 @@ quarkus-kotlin-clean-arch-template/
 ```
 HTTP Request
   → UserResource (web-api/adapter/in/gateway)
-    → CreateUserUseCase (core/use-case/port/in)
-      → UserRepository (core/use-case/port/out) [INTERFACE]
+    → CreateUserUseCase (core/application/port/in)
+      → UserRepository (core/application/port/out) [INTERFACE]
         ← UserRepositoryImpl (common/adapter/out) [IMPLEMENTATION]
           → UserJpaRepository (Spring Data JPA)
             → PostgreSQL
@@ -56,9 +56,10 @@ HTTP Request
 ### Layer Responsibilities
 
 1. **core/domain**: Pure business entities, no framework dependencies
-2. **core/use-case**:
+2. **core/application**:
    - Business logic orchestration
-   - Defines **Port In** (use cases themselves)
+   - Defines **Use Case** (use cases)
+   - Defines **Port In** (themselves)
    - Defines **Port Out** (Repository, Service interfaces)
    - Works with PDOs (Persistence Domain Objects)
 3. **common**:
@@ -76,7 +77,7 @@ HTTP Request
 
 ### 1. Ports and Adapters (Dependency Inversion)
 
-**Ports** (interfaces) defined in `core/use-case/port/out/`:
+**Ports** (interfaces) defined in `core/application/port/out/`:
 ```kotlin
 interface UserRepository : CommonRepository<UserPDO, UUID>
 interface AuthService { fun authenticate(...) }
@@ -160,8 +161,8 @@ class UserNotFoundExceptionHandler : ExceptionMapper<UserNotFoundException> {
 
 ### When Adding New Features
 
-1. **Define port interface** in `core/use-case/port/out/` if external dependency needed
-2. **Create use case** in `core/use-case/port/in/use_case/`
+1. **Define port interface** in `core/application/port/out/` if external dependency needed
+2. **Create use case** in `core/application/use_case/`
 3. **Implement adapter** in `common/adapter/out/`
 4. **Wire use case** in `common/config/UseCaseConfig.kt` using `@Produces`
 5. **Add REST resource** in `web-api/adapter/in/gateway/`
@@ -205,12 +206,12 @@ Environment variables referenced via `${VAR_NAME}` syntax in `application.yml`.
 
 ```
 web-api
-  ├── depends on: core:use-case, common
+  ├── depends on: core:application, common
 
 common
-  ├── depends on: core:use-case
+  ├── depends on: core:application
 
-core:use-case
+core:application
   ├── depends on: core:domain
 
 core:domain

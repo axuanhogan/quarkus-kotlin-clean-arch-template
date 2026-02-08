@@ -1,6 +1,6 @@
-package com.axuanhogan.core.port.`in`.use_case.user
+package com.axuanhogan.application.use_case.user
 
-import com.axuanhogan.core.port.out.repository.UserRepository
+import com.axuanhogan.application.port.out.repository.UserRepository
 import com.axuanhogan.domain.user.User
 import com.axuanhogan.domain.user.value_object.Email
 import com.axuanhogan.domain.user.value_object.UserName

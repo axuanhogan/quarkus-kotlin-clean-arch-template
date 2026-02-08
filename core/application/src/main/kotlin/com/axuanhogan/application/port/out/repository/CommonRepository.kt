@@ -1,4 +1,4 @@
-package com.axuanhogan.core.port.out.repository
+package com.axuanhogan.application.port.out.repository
 
 interface CommonRepository<T , ID> {
 

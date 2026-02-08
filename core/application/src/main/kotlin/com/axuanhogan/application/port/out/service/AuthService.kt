@@ -1,4 +1,4 @@
-package com.axuanhogan.core.port.out.service
+package com.axuanhogan.application.port.out.service
 
 interface AuthService {
 

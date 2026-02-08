@@ -4,7 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped
 import com.axuanhogan.common.mapper.toDomainEntity
 import com.axuanhogan.common.mapper.toDAO
 import com.axuanhogan.common.adapter.out.jpa_repository.UserJpaRepository
-import com.axuanhogan.core.port.out.repository.UserRepository
+import com.axuanhogan.application.port.out.repository.UserRepository
 import com.axuanhogan.domain.user.User
 import com.axuanhogan.domain.user.value_object.UserId
 import kotlin.jvm.optionals.getOrNull

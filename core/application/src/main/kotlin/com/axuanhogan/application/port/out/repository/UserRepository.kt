@@ -1,4 +1,4 @@
-package com.axuanhogan.core.port.out.repository
+package com.axuanhogan.application.port.out.repository
 
 import com.axuanhogan.domain.user.User
 import com.axuanhogan.domain.user.value_object.UserId

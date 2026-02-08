@@ -5,8 +5,8 @@ import com.axuanhogan.adapter.`in`.gateway.v1.request.AuthResourceRequest
 import com.axuanhogan.adapter.`in`.gateway.v1.response.AuthResourceResponse
 import com.axuanhogan.security.ResourcePermissionChecker
 import com.axuanhogan.security.ResourcePermissionChecker.Companion.SCOPE_USER
-import com.axuanhogan.core.port.`in`.use_case.auth.SignInUseCase
-import com.axuanhogan.core.port.`in`.use_case.auth.SignInUseCaseInput
+import com.axuanhogan.application.use_case.auth.SignInUseCase
+import com.axuanhogan.application.use_case.auth.SignInUseCaseInput
 import jakarta.ws.rs.Consumes
 import jakarta.ws.rs.POST
 import jakarta.ws.rs.Path

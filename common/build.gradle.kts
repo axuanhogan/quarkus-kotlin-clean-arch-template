@@ -12,7 +12,7 @@ val quarkusPlatformVersion: String by project
 
 dependencies {
     implementation(project(":core:domain"))
-    implementation(project(":core:use-case"))
+    implementation(project(":core:application"))
     implementation(kotlin("stdlib-jdk8"))
 
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
