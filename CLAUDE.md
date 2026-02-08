@@ -113,7 +113,7 @@ class CreateUserUseCase(
 ) {
     fun execute(input: CreateUserUseCaseInput) {
         // Business logic here
-        userRepository.save(dao = user)
+        userRepository.save(domainEntity = user)
     }
 }
 ```
