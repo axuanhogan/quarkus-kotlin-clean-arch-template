@@ -19,7 +19,7 @@ interface KeycloakOidcClient {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Path("/realms/clean-architecture-implementation/protocol/openid-connect/token")
+    @Path("/realms/quarkus-kotlin-clean-arch-template/protocol/openid-connect/token")
     fun getAuthorizationTokenByPasswordGrant(
         @RestForm("grant_type") grantType: String,
         @RestForm("client_id") clientId: String,
